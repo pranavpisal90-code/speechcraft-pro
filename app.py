@@ -5,7 +5,7 @@ import base64
 
 # --- 1. CONFIGURATION ---
 st.set_page_config(
-    page_title="SpeechForge",  # <--- NAME UPDATED
+    page_title="SpeechForge",
     page_icon="logo.jpg",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -34,13 +34,22 @@ st.markdown("""
         .mega-title {
             font-family: 'Inter', sans-serif;
             font-weight: 900;
-            font-size: 64px !important;
+            font-size: 64px !important; /* Desktop Size */
             text-align: center;
             background: linear-gradient(to right, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
+
+        /* --- MOBILE FIX START --- */
+        @media only screen and (max-width: 600px) {
+            .mega-title {
+                font-size: 40px !important; /* Smaller size for mobile */
+            }
+        }
+        /* --- MOBILE FIX END --- */
+
         .glass-card {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(20px);
@@ -124,8 +133,8 @@ if img_b64:
         unsafe_allow_html=True
     )
 
-# --- 6. HERO SECTION (UPDATED NAME) ---
-st.markdown('<h1 class="mega-title">SpeechForge</h1>', unsafe_allow_html=True)  # <--- NAME UPDATED
+# --- 6. HERO SECTION ---
+st.markdown('<h1 class="mega-title">SpeechForge</h1>', unsafe_allow_html=True)
 
 st.markdown("""
     <p style="text-align: center; color: #e2e8f0; font-size: 26px; font-weight: 600; margin-bottom: 10px; font-family: 'Inter', sans-serif;">
@@ -176,4 +185,4 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- 8. FOOTER ---
 st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
 if 'credits' not in st.session_state: st.session_state.credits = 10000
-st.markdown(f"<div style='text-align: center; color: #475569;'>Credits: {st.session_state.credits} | SpeechForge © 2026</div>", unsafe_allow_html=True) # <--- NAME UPDATED
+st.markdown(f"<div style='text-align: center; color: #475569;'>Credits: {st.session_state.credits} | SpeechForge © 2026</div>", unsafe_allow_html=True)
